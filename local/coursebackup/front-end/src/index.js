@@ -265,7 +265,7 @@ export class App extends LitElement{
        if(course.id == 1) continue;
       
        await this.deleteAllCourses(course.id);
-       course.downloading = true;
+      //  course.downloading = true;
        this._courses[course.id] = course;
        this.requestUpdate();
        const res = await this._downloadCourse(course.id);
