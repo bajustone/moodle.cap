@@ -2,7 +2,7 @@ import {LitElement, css, svg, html} from 'lit';
 import { doneIcon, loadingIcon } from './icons.js';
 import LoadingElt from "./loading.js";
 // import ForumSync from './forum-sync.js';
-import {remoteAPIUrl} from "./cap-data.json";
+import {remoteAPIUrl, CAP_BASE_URL} from "./cap-data.json";
 
 
 const COURSES_ENDPOINT = "get-remote-courses.php";
@@ -341,8 +341,8 @@ customElements.define("f-loading", LoadingElt);
 (async ()=>{
   const isAdmin = await _isAdmin();
   if(isAdmin) return;
-  const currentUrl = document.location.origin;
-  const url = `${currentUrl}${SYNC_PAGE_LINK}`;
+  // const currentUrl = document.location.origin;
+  const url = `${CAP_BASE_URL}${SYNC_PAGE_LINK}`;
   const syncLink = document.querySelector(`a[href="${url}"]`);
   if(!syncLink){
     console.error("Sync page link not found");
