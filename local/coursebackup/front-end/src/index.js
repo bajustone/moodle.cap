@@ -297,22 +297,22 @@ export class App extends LitElement{
       try {
         const request = await fetch(url);
         // console.log("request: ", request);s
-        const coursefeedbackResponse = await fetch(`${COURSE_FEEDBACK_LINK}?course_id=${courseId}`);
+        // const coursefeedbackResponse = await fetch(`${COURSE_FEEDBACK_LINK}?course_id=${courseId}`);
+
         
-        
-        const coursefeedback = await coursefeedbackResponse.json();
-        const coursefeedbackSyncResponse = await fetch(`${remoteAPIUrl}${COURSE_FEEDBACK_SYNC_LINK}`, {
-          method: "post",
-          body: JSON.stringify(coursefeedback)
-        });
-        const coursefeedbackSync = await coursefeedbackSyncResponse.text();
-        console.log(coursefeedbackSync); 
+        // const coursefeedback = await coursefeedbackResponse.json();
+        // const coursefeedbackSyncResponse = await fetch(`${remoteAPIUrl}${COURSE_FEEDBACK_SYNC_LINK}`, {
+        //   method: "post",
+        //   body: JSON.stringify(coursefeedback)
+        // });
+        // const coursefeedbackSync = await coursefeedbackSyncResponse.text();
+        // console.log(coursefeedbackSync); 
   
         
-        // const json = await request.json();
+        const json = await request.json();
         
 
-        console.log(await request.text());
+        console.log(json);
         return json;
       } catch (error) {
         console.error( error);
