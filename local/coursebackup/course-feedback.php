@@ -10,9 +10,9 @@ $context = null;
 try {
     $context = context_course::instance($course_id);
 } catch (\Throwable $th) {
-   return json_encode([
+    echo(json_encode([
     "message" => "course not found"
-   ]);
+   ]));
    die();
 }
 

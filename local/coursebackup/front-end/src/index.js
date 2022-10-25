@@ -299,6 +299,7 @@ export class App extends LitElement{
         // console.log("request: ", request);s
         const coursefeedbackResponse = await fetch(`${COURSE_FEEDBACK_LINK}?course_id=${courseId}`);
         
+        
         const coursefeedback = await coursefeedbackResponse.json();
         const coursefeedbackSyncResponse = await fetch(`${remoteAPIUrl}${COURSE_FEEDBACK_SYNC_LINK}`, {
           method: "post",
