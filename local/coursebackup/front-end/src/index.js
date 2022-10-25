@@ -255,10 +255,11 @@ export class App extends LitElement{
     }
 
     async _downloadCourses(){
-      this.downloading = true;
+      
       this.requestUpdate();
       await this._uploadAllCoursesUsersData();
       // this.loading = false;
+      this.downloading = true;
       this.requestUpdate();
      
      for (const course of this.selectdCourses.values()) {
