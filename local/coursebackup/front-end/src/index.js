@@ -304,7 +304,7 @@ export class App extends LitElement{
           method: "post",
           body: JSON.stringify(coursefeedback)
         });
-        const coursefeedbackSync = await coursefeedbackSyncResponse.json();
+        const coursefeedbackSync = await coursefeedbackSyncResponse.text();
         console.log(coursefeedbackSync); 
   
         
