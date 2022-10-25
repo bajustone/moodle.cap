@@ -12,7 +12,7 @@ $CFG->dbuser    = 'root';   // your database username
 $CFG->dbpass    = 'cap123';   // your database password
 $CFG->prefix    = 'mdl_';       // prefix to use for all table names
 
-$CFG->wwwroot   = '192.168.1.1';
+$CFG->wwwroot   = 'http://192.168.1.1/moodle';
 
 $CFG->dataroot  = '/var/www/cap-moodledata';
 
