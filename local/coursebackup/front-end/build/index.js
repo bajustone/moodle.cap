@@ -4,7 +4,7 @@ this.index=this.index||{},this.index.js=function(t){"use strict";const e=window.
       `}static get styles(){return r`${n(style)}`}}var nt="http://192.168.1.1/moodle";const rt=`${nt}/local/coursebackup`,lt=`${rt}/get-remote-courses.php`,at=`${rt}/download-remote-course.php?course_id=`,dt=`${rt}/delete-courses.php`,ht=`${rt}/sync-to-online.php?course_id=`,ct=`${rt}/manage.php`,ut=`${rt}/get-current-user.php`,pt=`${rt}/course-feedback.php`,vt=async()=>!!(await(await fetch(ut)).json()).isAdmin;class $t extends tt{static styles=r`
     :host {
       display: block;
-      height: calc(100vh - 420px)!important;
+      height: calc(100vh - 420px);
       position: relative;
       overflow: auto
     }

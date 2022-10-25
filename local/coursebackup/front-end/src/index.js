@@ -26,7 +26,7 @@ export class App extends LitElement{
     static styles = css`
     :host {
       display: block;
-      height: calc(100vh - 420px)!important;
+      height: calc(100vh - 420px);
       position: relative;
       overflow: auto
     }
