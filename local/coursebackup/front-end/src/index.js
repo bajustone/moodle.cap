@@ -308,9 +308,10 @@ export class App extends LitElement{
         console.log(coursefeedbackSync); 
   
         
-        const json = await request.json();
+        // const json = await request.json();
+        
 
-        console.log(json);
+        console.log(await request.text());
         return json;
       } catch (error) {
         console.error( error);
