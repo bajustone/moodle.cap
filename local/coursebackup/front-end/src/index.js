@@ -178,6 +178,7 @@ export class App extends LitElement{
     // })
     window.addEventListener("offline", ()=>this._offline());
     window.addEventListener("online", ()=>this._online());
+    this.style.height = "100vh";
     const pageContentElt = document.querySelector("#page-content");
     const rect = pageContentElt?.getBoundingClientRect();
     if(rect)
