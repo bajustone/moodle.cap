@@ -256,11 +256,13 @@ export class App extends LitElement{
 
     async _downloadCourses(){
       
-      this.requestUpdate();
       await this._uploadAllCoursesUsersData();
       // this.loading = false;
+      // this.requestUpdate();
       this.downloading = true;
       this.requestUpdate();
+      
+
      
      for (const course of this.selectdCourses.values()) {
        if(course.id == 1) continue;
@@ -268,7 +270,7 @@ export class App extends LitElement{
        await this.deleteAllCourses(course.id);
       //  course.downloading = true;
        this._courses[course.id] = course;
-       this.requestUpdate();
+      //  this.requestUpdate();
        const res = await this._downloadCourse(course.id);
        course.downloading = false;
        course.downloadComplete = true;
@@ -291,8 +293,6 @@ export class App extends LitElement{
     async _uploadUserData(courseId){
 
       const url = `${SYNC_GRADES_ENDPOINT}${courseId}`;
-     
-
 
       try {
         const request = await fetch(url);
