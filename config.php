@@ -14,7 +14,7 @@ $CFG->prefix    = 'mdl_';       // prefix to use for all table names
 
 $CFG->wwwroot   = '192.168.1.1';
 
-$CFG->dataroot  = '/var/www/moodledata';
+$CFG->dataroot  = '/var/www/cap-moodledata';
 
 $CFG->sychronizationserver = "http://197.243.24.148";
 
