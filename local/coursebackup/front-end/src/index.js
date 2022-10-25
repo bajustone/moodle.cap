@@ -4,16 +4,16 @@ import LoadingElt from "./loading.js";
 // import ForumSync from './forum-sync.js';
 import {remoteAPIUrl, CAP_BASE_URL} from "./cap-data.json";
 
+const PLUGIN_BASE_URL = `${CAP_BASE_URL}/local/coursebackup`;
 
-const COURSES_ENDPOINT = "get-remote-courses.php";
-const COURSE_DOWNLOAD_ENDPOINT = "download-remote-course.php?course_id=";
-const COURSE_UPLOAD_TO_REMOTE_SERVER_ENDPOINT = "upload-course-to-remote-server.php?course_id=";
-const DELETE_ALL_COURSES_ENDPOINT = "delete-courses.php";
-const SYNC_GRADES_ENDPOINT = "sync-to-online.php?course_id=";
-const SYNC_PAGE_LINK = "/local/coursebackup/manage.php";
-const IS_USER_ADMIN_LINK = "/local/coursebackup/get-current-user.php";
-const COURSE_FEEDBACK_LINK = "/local/coursebackup/course-feedback.php";
-const COURSE_FEEDBACK_SYNC_LINK = "/local/coursebackup/sync-course-feedback.php";
+const COURSES_ENDPOINT = `${PLUGIN_BASE_URL}/get-remote-courses.php`;
+const COURSE_DOWNLOAD_ENDPOINT = `${PLUGIN_BASE_URL}/download-remote-course.php?course_id=`;
+const DELETE_ALL_COURSES_ENDPOINT = `${PLUGIN_BASE_URL}/delete-courses.php`;
+const SYNC_GRADES_ENDPOINT = `${PLUGIN_BASE_URL}/sync-to-online.php?course_id=`;
+const SYNC_PAGE_LINK = `${PLUGIN_BASE_URL}/manage.php`;
+const IS_USER_ADMIN_LINK = `${PLUGIN_BASE_URL}/get-current-user.php`;
+const COURSE_FEEDBACK_LINK = `${PLUGIN_BASE_URL}/course-feedback.php`;
+const COURSE_FEEDBACK_SYNC_LINK = `${PLUGIN_BASE_URL}/sync-course-feedback.php`;
 
 
 const _isAdmin = async () => {
