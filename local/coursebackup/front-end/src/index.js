@@ -169,13 +169,13 @@ export class App extends LitElement{
       this.requestUpdate();
     });
     // const syncObj = new ForumSync();
-    syncObj.syncCourseForums(4).then(a=>{
-      console.log("Done");
-      console.log(a);
-    }).catch(err=>{
-      console.error("Failed");
-      console.warn(err);
-    })
+    // syncObj.syncCourseForums(4).then(a=>{
+    //   console.log("Done");
+    //   console.log(a);
+    // }).catch(err=>{
+    //   console.error("Failed");
+    //   console.warn(err);
+    // })
     window.addEventListener("offline", ()=>this._offline());
     window.addEventListener("online", ()=>this._online());
     const pageContentElt = document.querySelector("#page-content");
