@@ -259,14 +259,15 @@ export class App extends LitElement{
       await this._uploadAllCoursesUsersData();
       // this.loading = false;
       // this.requestUpdate();
-      this.downloading = true;
-      this.requestUpdate();
+     
+      
       
 
      
      for (const course of this.selectdCourses.values()) {
        if(course.id == 1) continue;
-      
+       this.downloading = true;
+       this.requestUpdate();
        await this.deleteAllCourses(course.id);
       //  course.downloading = true;
        this._courses[course.id] = course;
@@ -275,7 +276,6 @@ export class App extends LitElement{
        course.downloading = false;
        course.downloadComplete = true;
        this._courses[course.id] = course;
-       console.log("dowload completed: ", res);
        this.requestUpdate();
 
      }
@@ -287,8 +287,15 @@ export class App extends LitElement{
         console.error(message);
         return {message}
       }
-      const resultString = await request.text();
-      return JSON.parse(resultString).success; 
+     try {
+      const resultString = await request.json();
+      console.log(resultString);
+      return resultString
+     } catch (error) {
+      const s = await request.text();
+      return s;
+     }
+      
     }
     async _uploadUserData(courseId){
 
@@ -296,17 +303,20 @@ export class App extends LitElement{
 
       try {
         const request = await fetch(url);
-        // console.log("request: ", request);s
-        // const coursefeedbackResponse = await fetch(`${COURSE_FEEDBACK_LINK}?course_id=${courseId}`);
+        const coursefeedbackResponse = await fetch(`${COURSE_FEEDBACK_LINK}?course_id=${courseId}`);
 
         
-        // const coursefeedback = await coursefeedbackResponse.json();
-        // const coursefeedbackSyncResponse = await fetch(`${remoteAPIUrl}${COURSE_FEEDBACK_SYNC_LINK}`, {
-        //   method: "post",
-        //   body: JSON.stringify(coursefeedback)
-        // });
-        // const coursefeedbackSync = await coursefeedbackSyncResponse.text();
-        // console.log(coursefeedbackSync); 
+        const coursefeedback = await coursefeedbackResponse.json();
+        if(coursefeedback.message){
+          console.warn(coursefeedback.message);
+          return;
+        }
+        const coursefeedbackSyncResponse = await fetch(`${remoteAPIUrl}${COURSE_FEEDBACK_SYNC_LINK}`, {
+          method: "post",
+          body: JSON.stringify(coursefeedback)
+        });
+        const coursefeedbackSync = await coursefeedbackSyncResponse.text();
+        console.log(coursefeedbackSync); 
   
         
         const json = await request.json();
