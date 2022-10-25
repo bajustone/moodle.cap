@@ -247,36 +247,38 @@ export class App extends LitElement{
       
     }
     async deleteAllCourses(courseId){
+      
       const url = `${DELETE_ALL_COURSES_ENDPOINT}?course_id=${courseId}`;
      
       const response = await fetch(url);
       const res = await response.json();
+     
       console.log("Delete existing course", res);
     }
 
     async _downloadCourses(){
       
-      await this._uploadAllCoursesUsersData();
-      // this.loading = false;
-      // this.requestUpdate();
-     
+      // await this._uploadAllCoursesUsersData();
       
-      
-
-     
      for (const course of this.selectdCourses.values()) {
        if(course.id == 1) continue;
-       this.downloading = true;
+       course.downloading = true;
        this.requestUpdate();
+       console.log("....., start uplading course");
+       await this._uploadUserData(course.id);
+       console.log("....., end uplading course");
+       console.log("....., start deleting course");
        await this.deleteAllCourses(course.id);
-      //  course.downloading = true;
+       console.log("....., end deleting course");
+       console.log("....., start downloading");
        this._courses[course.id] = course;
-      //  this.requestUpdate();
        const res = await this._downloadCourse(course.id);
+       console.log("...", res);
        course.downloading = false;
        course.downloadComplete = true;
        this._courses[course.id] = course;
        this.requestUpdate();
+       console.log("download should be complete");
 
      }
     }
