@@ -13,7 +13,7 @@ const SYNC_GRADES_ENDPOINT = `${PLUGIN_BASE_URL}/sync-to-online.php?course_id=`;
 const SYNC_PAGE_LINK = `${PLUGIN_BASE_URL}/manage.php`;
 const IS_USER_ADMIN_LINK = `${PLUGIN_BASE_URL}/get-current-user.php`;
 const COURSE_FEEDBACK_LINK = `${PLUGIN_BASE_URL}/course-feedback.php`;
-const COURSE_FEEDBACK_SYNC_LINK = `${PLUGIN_BASE_URL}/sync-course-feedback.php`;
+const COURSE_FEEDBACK_SYNC_LINK = `/sync-course-feedback.php`;
 
 
 const _isAdmin = async () => {
