@@ -255,7 +255,7 @@ export class App extends LitElement{
     }
 
     async _downloadCourses(){
-      this.loading = true;
+      this.downloading = true;
       this.requestUpdate();
       await this._uploadAllCoursesUsersData();
       // this.loading = false;
