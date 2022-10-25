@@ -258,7 +258,7 @@ export class App extends LitElement{
       this.loading = true;
       this.requestUpdate();
       await this._uploadAllCoursesUsersData();
-      this.loading = false;
+      // this.loading = false;
       this.requestUpdate();
      
      for (const course of this.selectdCourses.values()) {
